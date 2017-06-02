@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form action="#">
+	<h1>用&nbsp;户名:<input type="text" name="" id="use"></h1>
+	<h1>密&nbsp;&nbsp;码:<input type="password" name="" id="pwd"></h1>
+	<h1>确认密码:<input type="password" name="" id="pwdA"></h1>
+	<h1>邮&nbsp;&nbsp;箱:<input type="email" name="" id="eml"></h1>
+	<h1><input type="button" id="btn" value="提交">
+	<input type="button"  id="yzh" value="验证"></h1>
+	</form>
+	<script>
+function getId(ids){
+	 var ids=document.getElementById(ids);
+	 return ids;
+}
+var use=getId("use"),
+	pwd=getId("pwd"),
+	pwdA=getId("pwdA"),
+	eml=getId("eml"),
+	btn=getId("btn"),
+	yzh=getId("yzh");
+  var emlV = /^([a-zA-Z0-9]+[_|/_|/.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|/_|/.]?)*[a-zA-Z0-9]+[a-zA-Z]{2,3}$/;
+function fn(text){
+	if(use.value.length>3){
+		if(pwd.value==pwdA.value){
+			if(pwd.value.length>7){
+				if(emlV.test(eml.value)){
+					alert(text)
+				}else{
+					alert("你输入的邮箱不正确")
+				}
+			}else{
+				alert("你输入的密码少于8位")
+			}
+		}else{
+			alert("两次输入的密码不一致！")
+		}
+	}else{
+		alert("用户名至少包括四个字符！")
+	}
+}
+yzh.onclick=function(){
+	fn("你输入的全部正确");
+}
+btn.onclick=function(){
+	fn("你的数据已提交");
+}
+	</script>
+
+</body>
+</html>
+
+
+	
